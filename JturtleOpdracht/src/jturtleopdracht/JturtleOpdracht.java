@@ -65,7 +65,7 @@ public class JturtleOpdracht extends Applet {
         //turt.right(90);
         //s.drawTriangle(.1, .1, .5, .9, .9, 1, 7);
         for (int i = 1; i <= 1; i++) {
-            s.drawTriangle(8, 720);
+            s.drawTriangle(14, 720);
             turt.rt(90);
         }
     }
