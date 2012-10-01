@@ -5,7 +5,7 @@
 package jturtleopdracht;
 
 import java.applet.Applet;
-import java.awt.Graphics;
+import java.awt.Graphics; 
 import laan.turtle.JTurtle;
 import laan.turtle.JTurtlePos;
 
