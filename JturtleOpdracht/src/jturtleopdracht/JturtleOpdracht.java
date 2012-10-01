@@ -5,6 +5,7 @@
 package jturtleopdracht;
 
 import java.applet.Applet;
+import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 import laan.turtle.JTurtle;
@@ -59,6 +60,11 @@ public class JturtleOpdracht extends Applet {
         // KOCH END
         turt.init();
         turt.hide();
-        s.drawTriangle(.1, .1, .5, .9, .9, 1, 7);
+        turt.penup();
+        //s.drawTriangle(.1, .1, .5, .9, .9, 1, 7);
+        for (int i = 1; i <= 1; i++) {
+            s.drawTriangle(8, 720);
+            turt.rt(90);
+        }
     }
 }

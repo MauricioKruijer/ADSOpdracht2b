@@ -1,23 +1,26 @@
 package jturtleopdracht;
 
+import java.awt.Color;
 import laan.turtle.JTurtle;
 
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * To change this template, choose Tools | Templates and open the template in
+ * the editor.
  */
-
 /**
  *
  * @author Mauricio
  */
 public class Sierpinski {
+    
     private JTurtle turtle;
+    private int m_order = 7;
+    private int m_suborder = 1;
     
     public Sierpinski(JTurtle turt) {
         turtle = turt;
     }
-
+    
     private void drawTriangle(int points[][]) {
         turtle.forward(1);
         turtle.setPos(points[0][0], points[0][1]);
@@ -29,30 +32,33 @@ public class Sierpinski {
         //endfill
     }
     
-    public void drawTriangle(double x1, double y1, double x2, double y2, double x3, double y3, int depth) {
-        double  x1_2 = (x1 + x2) / 2, 
-                y1_2 = (y1 + y2) / 2;
-        double  x1_3 = (x1 + x3) / 2,
-                y1_3 = (y1 + y3) / 2;
-        double  x2_3 = (x2 + x3) / 2,
-                y2_3 = (y2 + y3) / 2;
-        
-        if(depth > 0) {
-            drawTriangle(x1, y1, x1_2, y1_2, x1_3, y1_3, depth - 1);
-            drawTriangle(x1_2, y1_2, x2, y2, x2_3, y2_3, depth - 1);
-            drawTriangle(x1_3, y1_3, x2_3, y2_3, x3, y3, depth - 1);
-        } else {
-            double[] xPoints = {x1, x2, x3}, 
-                     yPoints = {y1, y2, y3};
-            // hier dan nog een methode voor die lameass triangle op x-y as T_T
-            // new Polygon(xPoints, yPoints); is de originele
-            turtle.left(y1);
-            turtle.fd(y2);
-            turtle.right(x1);
-            turtle.fd(x2);
-            turtle.right(y3);
-            turtle.fd(x3);
+    public void drawTriangle(int order, double length) {
+        Color colorIndex[] = {Color.blue, Color.cyan, Color.pink, Color.yellow, Color.green, Color.red, Color.magenta, Color.orange};
+        if (order > 1) {
+            drawTriangle(order - 1, length / 2);
+            turtle.penup();
+            turtle.fd(length / 2);
+            turtle.pendown();
+            drawTriangle(order - 1, length / 2);
+            turtle.penup();
+            
+            turtle.rt(-60);
+            turtle.fd(length / 2);
+            turtle.rt(-60);
+            turtle.pendown();
+            drawTriangle(order - 1, length / 2);
+            turtle.penup();
+            turtle.bk(length / 2);
+            turtle.rt(120);
+            turtle.bk(length);
+            turtle.pendown();
         }
+        turtle.setPenColor(colorIndex[order % 8]);
+        turtle.fd(length);
+        turtle.rt(-120);
+        turtle.fd(length);
+        turtle.rt(-120);
+        turtle.fd(length);
+        turtle.rt(-120);
     }
-    
 }
