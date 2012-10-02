@@ -12,15 +12,15 @@ import laan.turtle.JTurtle;
  * @author Mauricio
  */
 public class Sierpinski {
-    
+
     private JTurtle turtle;
     private int m_order = 7;
     private int m_suborder = 1;
-    
+
     public Sierpinski(JTurtle turt) {
         turtle = turt;
     }
-    
+
     private void drawTriangle(int points[][]) {
         turtle.forward(1);
         turtle.setPos(points[0][0], points[0][1]);
@@ -31,7 +31,7 @@ public class Sierpinski {
         turtle.setPos(points[0][0], points[0][1]);
         //endfill
     }
-    
+
     public void drawTriangle(int order, double length) {
         Color colorIndex[] = {Color.blue, Color.cyan, Color.pink, Color.yellow, Color.green, Color.red, Color.magenta, Color.orange};
         if (order > 1) {
@@ -41,7 +41,7 @@ public class Sierpinski {
             turtle.pendown();
             drawTriangle(order - 1, length / 2);
             turtle.penup();
-            
+
             turtle.rt(-60);
             turtle.fd(length / 2);
             turtle.rt(-60);
