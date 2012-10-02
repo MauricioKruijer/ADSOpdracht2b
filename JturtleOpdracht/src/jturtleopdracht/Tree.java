@@ -19,12 +19,19 @@ public class Tree {
             turtle.fd(length);
             turtle.bk(length);
         } else {
-            turtle.fd(length);
-            turtle.lt(30);
-            drawTree(3 * length / 3, depth - 1);
-            turtle.rt(90);
-            drawTree(3 * length / 3, depth - 1);
-            turtle.lt(60);
+//            turtle.fd(length);
+//            turtle.lt(40);
+//            drawTree(3 * length / 3, depth - 1);
+//            turtle.rt(120);
+//            drawTree(3 * length / 3, depth - 1);
+//            turtle.lt(40);
+//            turtle.bk(length);
+            turtle.fd(length); 
+            turtle.lt(30); 
+            drawTree(2 * length / 3, depth -1);
+            turtle.rt(90); 
+            drawTree(2 * length / 3, depth -1 );
+            turtle.lt(60); 
             turtle.bk(length);
         }
     }
